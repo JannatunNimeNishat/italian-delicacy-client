@@ -20,10 +20,10 @@ const Navbar = () => {
            </span>
        </div>
         <nav className={`my-container mt-2  md:mt-0  md:flex absolute md:static duration-500  
-        ${open ? 'top-6' : '-top-40'}   justify-between items-center  py-3 `}>
+        ${open ? 'top-6' : '-top-40'}   justify-between items-center  py-4 `}>
 
 
-            <Link to='/'><h3 className='text-3xl'>Italian-delicacy</h3></Link>
+            <Link to='/'><h3 className='text-3xl primary-color font-bold'>Italian-delicacy</h3></Link>
             <div className='flex gap-5'>
                 <NavLink
                     to='/'
