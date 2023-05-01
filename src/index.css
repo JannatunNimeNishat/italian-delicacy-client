@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.my-container{
+    @apply px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 
+  }
+/* .my-container{
+    @apply px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20
+  } */
+.active{
+    @apply text-yellow-500  font-semibold;
+}
+
+.primary-color{
+    @apply text-yellow-500;
+}
+
+.my-btn{
+    @apply px-5 py-2 text-white font-semibold bg-yellow-500 rounded-lg;
+}
+
+
+
+
+
+
+
+
+
