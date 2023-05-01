@@ -5,12 +5,14 @@ import Blog from "../pages/Blog/Blog";
 import Login from "../pages/Login/Login";
 import ChefsRecipe from "../pages/ChefsRecipe/ChefsRecipe";
 import getChefsRecipe from "../utilitie/helper";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
