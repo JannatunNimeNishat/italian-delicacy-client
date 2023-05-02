@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { FaHeart } from 'react-icons/fa'
+
+import Recipe from '../Recipe/Recipe';
+
+
 const ChefsRecipe = () => {
     const { id } = useParams()
 
     const [chefsInfo, setChefsInfo] = useState(null);
     const [recipes, setRecipes] = useState(null);
+ 
 
     useEffect(() => {
         fetch(`http://localhost:5000/chef/${id}`)
@@ -28,8 +33,7 @@ const ChefsRecipe = () => {
 
     }, [])
 
-    console.log('chefs', chefsInfo);
-    console.log('recipes', recipes);
+   
 
     return (
         <div className='my-container mt-5 '>
@@ -54,22 +58,7 @@ const ChefsRecipe = () => {
             <h3 className='mt-12 text-3xl font-bold'>Best Recipes</h3>
             <div className='mt-8  grid grid-cols-3 gap-8'>
                 {
-                    recipes && recipes.map(singleRecipe => (
-                        <div className='border p-4 flex flex-col'>
-                            <h3 className='text-xl font-bold'>{singleRecipe.recipe_name}</h3>
-                            <p className='mt-3 font-semibold'>Ingredients: </p>
-                            {
-
-                                singleRecipe.ingredients.map((ingredient, index) => <p>{index}. {ingredient}</p>)
-                            }
-                            <p className='mt-3 font-semibold'>Cooking Method:</p>
-                            <p >{singleRecipe.cooking_method}</p>
-                            <p className='mt-3'>Rating: {singleRecipe.rating}</p>
-                            <div className='flex-1 flex items-end mt-3 '>
-                                <button className=' w-full my-btn'>Like the recipe <FaHeart className='inline ml-3 text-red-700' /></button>
-                            </div>
-                        </div>
-                    ))
+                    recipes && recipes.map(singleRecipe => <Recipe key={singleRecipe.id} singleRecipe={singleRecipe}></Recipe>)
                 }
             </div>
         </div>
