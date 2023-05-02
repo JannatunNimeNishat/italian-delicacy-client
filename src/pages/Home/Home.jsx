@@ -40,7 +40,7 @@ const Home = () => {
                 </div>
                 <div className='col-span-1 flex flex-col justify-center '>
                     <h3 className='text-3xl font-bold'>Welcome to <span className='primary-color'>Italian delicacy</span></h3>
-                    <p className='mt-3'>Since 2002 we've been serving our customers the best quality italian food, traditionally made and presented with care.</p>
+                    <p className='mt-3'>Since 2002 we've been serving our customers the best quality italian food recipes, which are traditionally made and presented with care.</p>
                 </div>
             </div>
             {/* chefs section */}
