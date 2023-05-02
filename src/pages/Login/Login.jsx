@@ -1,7 +1,8 @@
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 const initialValue = { 
     email: '',
     password: ''
@@ -9,18 +10,31 @@ const initialValue = {
 }
 const Login = () => {
     const [loginError, setLoginError] = useState();
+    const {login} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const {values, errors, handleBlur, handleChange, handleSubmit, touched} = useFormik({
         initialValues:initialValue,
         onSubmit:(values,target)=>{
             const email = values.email;
             const password = values.password;
-            console.log(email,password);
+            //console.log(email,password);
+            setLoginError('')
+            //
+            login(email,password)
+            .then(result =>{
+                console.log(result.user);
+                navigate('/')
+            })
+            .catch(error=>{
+                setLoginError(error.message);
+            })
+            target.resetForm()
         }
     })
 
     return (
-        <div className='my-container mt-10 h-[80vh] '>
+        <div className='my-container mt-10  '>
             <form onSubmit={handleSubmit} className=' w-[450px] px-10 text-center border mx-auto'>
                 <h3 className='text-3xl font-bold mt-5'>Please Login</h3>
               
@@ -33,12 +47,7 @@ const Login = () => {
                     onBlur={handleBlur}
                     required
                 />
-                {
-                    errors.email && touched.email ? 
-                     <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.email}</small></p>
-                     :
-                     null
-                }
+                
                 <br />
 
                 <input className='border-b-2 bg-black w-full mt-8 px-2'
@@ -50,13 +59,7 @@ const Login = () => {
                     onBlur={handleBlur}
                     required
                 />
-                {
-                    errors.password && touched.password  ?
-                     <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.password}</small></p>
-                     :
-                     null
-                }
-
+               
                 <input className='mt-8 my-btn w-1/3 cursor-pointer' type="submit" value="Login" />
 
                 {

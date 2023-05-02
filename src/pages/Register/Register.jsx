@@ -1,8 +1,9 @@
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import registerSchema from '../../schema/YupValidation';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const initialValue = {
     name: '',
@@ -12,6 +13,8 @@ const initialValue = {
 }
 const Register = () => {
     const [loginError, setLoginError] = useState();
+    const {registerUser,updateUser} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     //formik
     const { values, errors, handleBlur, handleChange, handleSubmit, touched } = useFormik({
@@ -22,7 +25,27 @@ const Register = () => {
             const email = values.email;
             const password = values.password;
             const photoURL = values.photoURL;
-            console.log(name, email, password, photURL);
+            //console.log(name, email, password, photoURL);
+            setLoginError('')
+          
+            registerUser(email,password)
+            .then(result =>{
+                
+                updateUser(result.user,name,photoURL)
+                .then(()=>{
+                    console.log('user updated');
+                })
+                .catch(error=>{
+                    setLoginError(error.message)
+                })
+                navigate('/');
+                console.log(result.user);
+            })
+            .catch(error=>{
+                setLoginError(error.message)
+            })
+            
+            action.resetForm();
         }
     })
 
