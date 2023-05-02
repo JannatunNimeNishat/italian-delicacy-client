@@ -1,16 +1,61 @@
+import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
+const initialValue = { 
+    email: '',
+    password: ''
+   
+}
 const Login = () => {
     const [loginError, setLoginError] = useState();
+
+    const {values, errors, handleBlur, handleChange, handleSubmit, touched} = useFormik({
+        initialValues:initialValue,
+        onSubmit:(values,target)=>{
+            const email = values.email;
+            const password = values.password;
+            console.log(email,password);
+        }
+    })
+
     return (
         <div className='my-container mt-10 h-[80vh] '>
-            <form className=' w-[450px] px-10 text-center border mx-auto'>
+            <form onSubmit={handleSubmit} className=' w-[450px] px-10 text-center border mx-auto'>
                 <h3 className='text-3xl font-bold mt-5'>Please Login</h3>
-                <input className='border-b-2 bg-black w-full mt-10 px-2' type="email" name="email" placeholder='please enter your email' />
+              
+                   <input className='border-b-2 bg-black w-full mt-10 px-2'
+                    type="email"
+                    name="email"
+                    placeholder='please enter your email'
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    required
+                />
+                {
+                    errors.email && touched.email ? 
+                     <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.email}</small></p>
+                     :
+                     null
+                }
                 <br />
-                <input className='border-b-2 bg-black w-full mt-8 px-2' type="password" name="password" placeholder='please enter your password' />
-                <br />
+
+                <input className='border-b-2 bg-black w-full mt-8 px-2'
+                    type="password"
+                    name="password"
+                    placeholder='please enter your password'
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    required
+                />
+                {
+                    errors.password && touched.password  ?
+                     <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.password}</small></p>
+                     :
+                     null
+                }
 
                 <input className='mt-8 my-btn w-1/3 cursor-pointer' type="submit" value="Login" />
 
