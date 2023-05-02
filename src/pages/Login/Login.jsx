@@ -1,8 +1,9 @@
 import { useFormik } from 'formik';
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+
 const initialValue = { 
     email: '',
     password: ''
@@ -13,6 +14,11 @@ const Login = () => {
     const {login,googleSignIn,githubSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
 
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
+    
+    
+    //formik
     const {values, errors, handleBlur, handleChange, handleSubmit, touched} = useFormik({
         initialValues:initialValue,
         onSubmit:(values,target)=>{
@@ -21,10 +27,10 @@ const Login = () => {
             //console.log(email,password);
             setLoginError('')
             //
-            login(email,password)
+            login(email,password) 
             .then(result =>{
                 console.log(result.user);
-                navigate('/')
+                navigate(from, {replace:true});
             })
             .catch(error=>{
                 setLoginError(error.message);

@@ -8,11 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 const Main = () => {
     const navigation = useNavigation();
+    console.log(navigation.state);
     return (
         <div className='bg-black text-white '>
+
             <Navbar></Navbar>
             {
-                navigation.state === 'loading' ? <Loading/>: ''
+                navigation.state === 'loading' ? <Loading /> : ''
+
             }
             <div className='min-h-[calc(100vh-92px)]'>
                 <Outlet></Outlet>

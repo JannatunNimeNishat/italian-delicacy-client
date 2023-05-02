@@ -7,6 +7,7 @@ import ChefsRecipe from "../pages/ChefsRecipe/ChefsRecipe";
 import getChefsRecipe from "../utilitie/helper";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -34,8 +35,8 @@ const router = createBrowserRouter([
             },
             {
                 path:'/ChefsRecipe/:id',
-                element:<ChefsRecipe></ChefsRecipe>
-                // loader: ({params}) => getChefsRecipe(params.id)
+                element:<PrivateRoute><ChefsRecipe></ChefsRecipe></PrivateRoute>
+                
             }
         ]
     }

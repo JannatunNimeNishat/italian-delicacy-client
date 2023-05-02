@@ -1,13 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaUserAlt } from 'react-icons/fa'
 import { BsXLg } from "react-icons/bs";
 import { AuthContext } from '../../../providers/AuthProvider';
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     const [open, setOpen] = useState(false);
+    // console.log(user.photoURL); 
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
     return (
         <>
 
@@ -37,25 +47,34 @@ const Navbar = () => {
                     >Blog</NavLink>
                 </div>
                 <div className='md:flex items-center gap-8'>
-                    {/*  {
-                    user ?
-                        <>
-                            <p>img</p>
+                    {
+                        user ?
+                            <>
+                                <Link >
+                                    <button onClick={handleLogout} className='my-btn primary-color'>Logout</button>
+                                </Link>
 
-                            <Link to='logout'>
-                                <button className='my-btn primary-color'>Logout</button>
-                            </Link>
-                        </>
-                        :
-                        <>
-                            <Link to='/login'>
-                                <button className='my-btn'>Login</button>
-                            </Link>
-                        </>
-                } */}
-                    <Link to='/login'>
+                                {
+                                    user.photoURL ?
+                                        <img title={user.displayName} className='w-[45px]    object-cover rounded-full' src={user.photoURL} />
+                                        :
+                                        <FaUserAlt title={user.displayName} className='w-[45px]  h-[25px]   ' />
+                                }
+
+
+
+
+                            </>
+                            :
+                            <>
+                                <Link to='/login'>
+                                    <button className='my-btn'>Login</button>
+                                </Link>
+                            </>
+                    }
+                    {/* <Link to='/login'>
                         <button className='my-btn'>Login</button>
-                    </Link>
+                    </Link> */}
                 </div>
             </nav>
         </>

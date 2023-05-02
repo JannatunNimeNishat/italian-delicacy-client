@@ -17,7 +17,7 @@ const registerSchema = Yup.object({
         ),
     photoURL: Yup
         .string()
-        .required('Please enter your photoURL')
+        
 
 })
 
