@@ -13,7 +13,7 @@ const initialValue = {
 }
 const Register = () => {
     const [loginError, setLoginError] = useState();
-    const {registerUser,updateUser} = useContext(AuthContext);
+    const { registerUser, updateUser, googleSignIn, githubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
     //formik
@@ -27,29 +27,51 @@ const Register = () => {
             const photoURL = values.photoURL;
             //console.log(name, email, password, photoURL);
             setLoginError('')
-          
-            registerUser(email,password)
-            .then(result =>{
-                
-                updateUser(result.user,name,photoURL)
-                .then(()=>{
-                    console.log('user updated');
+
+            registerUser(email, password)
+                .then(result => {
+
+                    updateUser(result.user, name, photoURL)
+                        .then(() => {
+                            console.log('user updated');
+                        })
+                        .catch(error => {
+                            setLoginError(error.message)
+                        })
+                    navigate('/');
+                    console.log(result.user);
                 })
-                .catch(error=>{
+                .catch(error => {
                     setLoginError(error.message)
                 })
-                navigate('/');
-                console.log(result.user);
-            })
-            .catch(error=>{
-                setLoginError(error.message)
-            })
-            
+
             action.resetForm();
         }
     })
-
-
+    //google signUp
+    const handleGoogleSignUp = () => {
+        setLoginError('')
+        googleSignIn()
+            .then(result => {
+                console.log(result.user);
+                navigate('/')
+            })
+            .catch(error => {
+                setLoginError(error.message)
+            })
+    }
+    //github signUp
+    const handleGIthubSignUp = () => {
+        setLoginError('')
+        githubSignIn()
+            .then(result => {
+                console.log(result.user);
+                navigate('/')
+            })
+            .catch(error => {
+                setLoginError(error.message)
+            })
+    }
     return (
         <div className='my-container mt-10  '>
             <form onSubmit={handleSubmit} className=' w-[450px] px-10 text-center border mx-auto'>
@@ -62,12 +84,12 @@ const Register = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                 />
-                    <br />
+                <br />
                 {
-                    errors.name && touched.name ? 
-                    <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.name}</small></p>
-                    :
-                    null
+                    errors.name && touched.name ?
+                        <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.name}</small></p>
+                        :
+                        null
                 }
 
 
@@ -80,10 +102,10 @@ const Register = () => {
                     onBlur={handleBlur}
                 />
                 {
-                    errors.email && touched.email ? 
-                     <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.email}</small></p>
-                     :
-                     null
+                    errors.email && touched.email ?
+                        <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.email}</small></p>
+                        :
+                        null
                 }
                 <br />
 
@@ -96,10 +118,10 @@ const Register = () => {
                     onBlur={handleBlur}
                 />
                 {
-                    errors.password && touched.password  ?
-                     <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.password}</small></p>
-                     :
-                     null
+                    errors.password && touched.password ?
+                        <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.password}</small></p>
+                        :
+                        null
                 }
                 <br />
 
@@ -113,9 +135,9 @@ const Register = () => {
                 />
                 {
                     errors.photoURL && touched.photoURL ?
-                     <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.photoURL}</small></p>
-                     :
-                     null
+                        <p className='mt-4 text-red-600 font-semibold text-center'><small>{errors.photoURL}</small></p>
+                        :
+                        null
                 }
                 <br />
 
@@ -139,13 +161,13 @@ const Register = () => {
                 </div>
 
                 <div className='mt-4 border w-full rounded-lg  '>
-                    <button className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
+                    <button onClick={handleGoogleSignUp} className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
                         <FaGoogle className='h-6 w-6 ' />
                         <p>Continue with Google</p>
                     </button>
                 </div>
                 <div className='mt-4 border w-full rounded-lg  mb-10'>
-                    <button className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
+                    <button onClick={handleGIthubSignUp} className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
                         <FaGithub className='h-6 w-6 ' />
                         <p>Continue with Github</p>
                     </button>

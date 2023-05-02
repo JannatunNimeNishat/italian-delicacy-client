@@ -10,7 +10,7 @@ const initialValue = {
 }
 const Login = () => {
     const [loginError, setLoginError] = useState();
-    const {login} = useContext(AuthContext);
+    const {login,googleSignIn,githubSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const {values, errors, handleBlur, handleChange, handleSubmit, touched} = useFormik({
@@ -32,6 +32,32 @@ const Login = () => {
             target.resetForm()
         }
     })
+
+    //google signUp
+    const handleGoogleSignUp =()=>{
+        setLoginError('')
+        googleSignIn()
+        .then(result=>{
+            console.log(result.user);
+            // navigate('/')
+        })
+        .catch(error=>{
+            setLoginError(error.message)
+        })
+    }
+
+    //github signUp
+    const handleGIthubSignUp =()=>{
+        setLoginError('')
+        githubSignIn()
+        .then(result=>{
+            console.log(result.user);
+            navigate('/')
+        })
+        .catch(error=>{
+            setLoginError(error.message)
+        })
+    }
 
     return (
         <div className='my-container mt-10  '>
@@ -79,13 +105,13 @@ const Login = () => {
                 </div>
 
                 <div className='mt-4 border w-full rounded-lg  '>
-                    <button className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
+                    <button onClick={handleGoogleSignUp} className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
                         <FaGoogle className='h-6 w-6 ' />
                         <p>Continue with Google</p>
                     </button>
                 </div>
                 <div className='mt-4 border w-full rounded-lg  mb-10'>
-                    <button className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
+                    <button onClick={handleGIthubSignUp} className='flex items-center gap-5 h-[40px] w-1/1 mx-auto'>
                         <FaGithub className='h-6 w-6 ' />
                         <p>Continue with Github</p>
                     </button>
