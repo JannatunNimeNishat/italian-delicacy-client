@@ -17,7 +17,7 @@ const Login = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
     
-    
+
     //formik
     const {values, errors, handleBlur, handleChange, handleSubmit, touched} = useFormik({
         initialValues:initialValue,
@@ -67,7 +67,7 @@ const Login = () => {
 
     return (
         <div className='my-container mt-10  '>
-            <form onSubmit={handleSubmit} className=' w-[450px] px-10 text-center border mx-auto'>
+            <form onSubmit={handleSubmit} className='  w-[450px] px-10 text-center border mx-auto'>
                 <h3 className='text-3xl font-bold mt-5'>Please Login</h3>
               
                    <input className='border-b-2 bg-black w-full mt-10 px-2'

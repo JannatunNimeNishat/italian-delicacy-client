@@ -10,7 +10,8 @@ const Main = () => {
     const navigation = useNavigation();
     console.log(navigation.state);
     return (
-        <div className='bg-black text-white '>
+        // bg-[#2C2C2C]
+        <div className='bg-black text-white '> 
 
             <Navbar></Navbar>
             {

@@ -9,7 +9,7 @@ const Recipe = ({ singleRecipe }) => {
         setLiked(true);
     }
     return (
-        <div className='border p-4 flex flex-col '>
+        <div className='border p-6 flex flex-col bg-black '>
             <h3 className='text-xl font-bold'>{singleRecipe.recipe_name}</h3>
             <p className='mt-3 font-semibold'>Ingredients: </p>
             {
