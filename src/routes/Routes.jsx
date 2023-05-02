@@ -6,13 +6,14 @@ import Login from "../pages/Login/Login";
 import ChefsRecipe from "../pages/ChefsRecipe/ChefsRecipe";
 import getChefsRecipe from "../utilitie/helper";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Register from "../pages/Register/Register";
 
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
-        errorElement:<ErrorPage></ErrorPage>,
+        // errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path:'/login',
                 element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
             },
             {
                 path:'/ChefsRecipe/:id',
