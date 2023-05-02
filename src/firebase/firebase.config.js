@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log('environmnet variable', import.meta.env.VITE_apiKey);
 const firebaseConfig = {
-  apiKey: "AIzaSyC3g_bOfGjAjr7yn54R9SLj-z7APxaGm3E",
-  authDomain: "italian-delicacy.firebaseapp.com",
-  projectId: "italian-delicacy",
-  storageBucket: "italian-delicacy.appspot.com",
-  messagingSenderId: "465377520016",
-  appId: "1:465377520016:web:285a1bb15b45c6369e6b15"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

@@ -44,8 +44,8 @@ const Login = () => {
         setLoginError('')
         googleSignIn()
         .then(result=>{
-            console.log(result.user);
-            // navigate('/')
+            // console.log(result.user);
+            navigate('/')
         })
         .catch(error=>{
             setLoginError(error.message)
