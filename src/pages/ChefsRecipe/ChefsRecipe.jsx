@@ -15,6 +15,7 @@ const ChefsRecipe = () => {
 
     useEffect(() => {
         fetch(`http://localhost:5000/chef/${id}`)
+        // fetch(`http://localhost:5000/chef/${id}`)
             .then(res => res.json())
             .then(data => {
 
@@ -68,11 +69,3 @@ const ChefsRecipe = () => {
 export default ChefsRecipe;
 
 
-/**Each recipe info should contain the recipe name, ingredients (at least 5), cooking method, rating, and a Favorite button. Show at least 3 recipes. for each chef. If needed, you can have duplicate recipes for each chef
- * 
- * 
- * Banner - chef picture, chef name, a short bio/description, likes, number of recipes, and years of experience.
-
-Think about a section displaying the information of the selected chef's recipes in a tabular form or in a card group.
-
- */

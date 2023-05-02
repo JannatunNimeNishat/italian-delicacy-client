@@ -20,16 +20,3 @@ const Chefs = ({ singleChef }) => {
 
 export default Chefs;
 
-/**
- * Chef Picture
-
-Chef Name
-
-Years of experience
-
-Numbers of recipes
-
-Likes
-
-View Recipes Button
- */
