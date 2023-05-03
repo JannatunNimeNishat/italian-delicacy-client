@@ -11,7 +11,7 @@ const Main = () => {
     // console.log(navigation.state);
     return (
         // bg-[#2C2C2C]
-        <div className='bg-black text-white '> 
+        <div className='bg-black text-white '>
 
             <Navbar></Navbar>
             {
@@ -22,7 +22,19 @@ const Main = () => {
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={true}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };

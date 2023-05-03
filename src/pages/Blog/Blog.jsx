@@ -5,7 +5,7 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 const Blog = () => {
     return (
         <>
-            <BlogContent />
+            <BlogContent></BlogContent>
 
             <PDFDownloadLink document={<BlogContent />} fileName='blog.pdf'>
                 {({ loading }) => (

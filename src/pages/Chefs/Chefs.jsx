@@ -9,7 +9,7 @@ const Chefs = ({ singleChef }) => {
         <div className='border text-white p-5'>
             <div className='overflow-hidden'>
                 <LazyLoad>
-                    <img className='object-cover h-[300px]' src={picture} alt="" />
+                    <img className='object-cover h-[300px] ' src={picture} alt="" />
                 </LazyLoad>
             </div>
             <h3 className='text-2xl mt-4 font-semibold'>{chef_name} </h3>

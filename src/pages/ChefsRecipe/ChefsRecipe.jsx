@@ -15,7 +15,6 @@ const ChefsRecipe = () => {
 
     useEffect(() => {
         fetch(`http://localhost:5000/chef/${id}`)
-        // fetch(`http://localhost:5000/chef/${id}`)
             .then(res => res.json())
             .then(data => {
 

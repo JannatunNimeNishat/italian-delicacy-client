@@ -12,6 +12,7 @@ import MyFavoriteRecipes from "../pages/MyFavoriteRecipes/MyFavoriteRecipes";
 
 import getLikedRecipes from "../utilitie/helper"
 import Userdetails from "../pages/Userdetails/Userdetails";
+import About from "../pages/About/About";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path:'/userDetails',
                 element:<Userdetails></Userdetails>
+            },
+            {
+                path:'/about',
+                element:<About></About>
             }
         ]
     }

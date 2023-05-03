@@ -1,3 +1,4 @@
+import { Rating } from '@smastrom/react-rating';
 import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa'
 //
@@ -6,29 +7,33 @@ const Recipe = ({ singleRecipe }) => {
     const [liked, setLiked] = useState(false);
 
     const handleLiked = (id) => {
-        console.log('recipe id: ',id);
+        console.log('recipe id: ', id);
         toast('Like added');
         setLiked(true);
 
         //store liked items to local storage
-        let likedRecipesFromLocal={};
-        const getLocalSData= localStorage.getItem('likedRecipes')
-        if(getLocalSData){
+        let likedRecipesFromLocal = {};
+        const getLocalSData = localStorage.getItem('likedRecipes')
+        if (getLocalSData) {
             likedRecipesFromLocal = JSON.parse(getLocalSData);
         }
 
         const check = likedRecipesFromLocal[id];
-        if(!check){
+        if (!check) {
             likedRecipesFromLocal[id] = id;
         }
 
-        localStorage.setItem('likedRecipes',JSON.stringify(likedRecipesFromLocal));
+        localStorage.setItem('likedRecipes', JSON.stringify(likedRecipesFromLocal));
 
-        
+
     }
     return (
-        <div className='border p-6 flex flex-col bg-black '>
+        <div className='border p-6 flex flex-col  '>
+            <div className='mb-3'>
+                <img className='' src={singleRecipe.img} alt="" />
+            </div>
             <h3 className='text-xl font-bold'>{singleRecipe.recipe_name}</h3>
+            
             <p className='mt-3 font-semibold'>Ingredients: </p>
             {
 
@@ -36,10 +41,18 @@ const Recipe = ({ singleRecipe }) => {
             }
             <p className='mt-3 font-semibold'>Cooking Method:</p>
             <p >{singleRecipe.cooking_method}</p>
-            <p className='mt-3'>Rating: {singleRecipe.rating}</p>
+
+
+            <div className='flex items-center gap-3 mt-3  '>
+                <p className=''>Rating: {singleRecipe.rating}</p>
+                <Rating className=' inline' style={{ maxWidth: 130 }} value={singleRecipe.rating} readOnly />
+            </div>
+
+
+
 
             <div className='flex-1 flex items-end mt-3 '>
-                <button onClick={()=> handleLiked(singleRecipe.id)}
+                <button onClick={() => handleLiked(singleRecipe.id)}
                     className={`${liked ? 'opacity-50' : ''} w-full my-btn `}
                     disabled={liked == true ? true : false}
                 >

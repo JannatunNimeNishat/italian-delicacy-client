@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCopyright } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -13,8 +14,12 @@ const Footer = () => {
 
                     <div className=''>
                     <h3 className='text-xl font-bold mt-8 mb-4'>Navigate</h3>
-                        <p>Home</p>
-                        <p>Blog</p>
+                        <Link to='/'><p>Home</p></Link>
+                        <Link to='/blog'><p>Blog</p></Link>
+                        <Link to='/my_favorite_recipes'>My Favorite Recipes</Link>
+                        
+                        <Link to='/about'><p>About</p></Link>
+                        
                     </div>
 
                     <h3 className='text-xl font-bold mt-8 mb-3'>Learn More</h3>

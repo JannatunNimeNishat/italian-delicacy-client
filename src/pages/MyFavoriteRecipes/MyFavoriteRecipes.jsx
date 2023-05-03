@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { json, useLoaderData } from 'react-router-dom';
 
 import LikedSingleRecipe from './LikedSingleRecipe';
+import { toast } from 'react-toastify';
 const MyFavoriteRecipes = () => {
     const getLikedRecipes = useLoaderData();
     const [likedRecipes, setLikedRecipes] = useState(getLikedRecipes);
@@ -13,7 +14,8 @@ const MyFavoriteRecipes = () => {
         console.log(id);
         const newLikedRecipes = likedRecipes.filter(newLiked => newLiked.id !== id);
         setLikedRecipes(newLikedRecipes);
-        removeFromLocalStorage(id)
+        removeFromLocalStorage(id);
+        toast.error('removed')
 
     }
 
