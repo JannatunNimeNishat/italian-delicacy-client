@@ -45,6 +45,10 @@ const Navbar = () => {
                         to='/blog'
                         className={({ isActive }) => isActive ? 'active' : ''}
                     >Blog</NavLink>
+                    <NavLink
+                        to='/my_favorite_recipes'
+                        className={({ isActive }) => isActive ? 'active' : ''}
+                    >My Favorite Recipes</NavLink>
                 </div>
                 <div className='md:flex items-center gap-8'>
                     {

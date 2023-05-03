@@ -1,22 +1,30 @@
-// import { useParams } from "react-router-dom"
 
-const getChefsRecipe = (chefsId) => {
 
-    console.log('chefs id', chefsId);
-    let chefsRecipe = [];
-    let chefsData={};
-    fetch(`http://localhost:5000/chef/${chefsId}`)
-        .then(res => res.json())
-        .then(data => console.log(data) )
-    
-     let recipe;
-    fetch(`http://localhost:5000/recipes/${chefsId}`)
-    .then(res => res.json())
-    .then(data => console.log('recipes',data)) 
+const getLikedRecipes = async() => {
+    const res = await fetch('http://localhost:5000/recipes/')
+    const data = await res.json()
 
-    console.log(chefsData);
-    return 0;
+    let detailsLikedRecipe = [];
+   
+      let likedRecipesFromLocal;
+        const getLocalSData = localStorage.getItem('likedRecipes')
+        if(getLocalSData){
+            likedRecipesFromLocal = JSON.parse(getLocalSData);
+        }
+
+        for(let likedRecipe in likedRecipesFromLocal){
+          
+            const singleLikedRecipe =    data.find(singleRecipe => singleRecipe.id === parseInt(likedRecipe))
+            detailsLikedRecipe.push(singleLikedRecipe)   
+           
+        }
+      
+
+
+   return detailsLikedRecipe;
 
 }
 
-export default getChefsRecipe;
+
+
+export default getLikedRecipes

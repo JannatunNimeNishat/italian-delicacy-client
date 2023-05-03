@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 const Main = () => {
     const navigation = useNavigation();
-    console.log(navigation.state);
+    // console.log(navigation.state);
     return (
         // bg-[#2C2C2C]
         <div className='bg-black text-white '> 

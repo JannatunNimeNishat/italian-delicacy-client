@@ -4,11 +4,13 @@ import Home from "../pages/Home/Home";
 import Blog from "../pages/Blog/Blog";
 import Login from "../pages/Login/Login";
 import ChefsRecipe from "../pages/ChefsRecipe/ChefsRecipe";
-import getChefsRecipe from "../utilitie/helper";
+
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import MyFavoriteRecipes from "../pages/MyFavoriteRecipes/MyFavoriteRecipes";
 
+import getLikedRecipes from "../utilitie/helper"
 
 const router = createBrowserRouter([
     {
@@ -37,6 +39,11 @@ const router = createBrowserRouter([
                 path:'/ChefsRecipe/:id',
                 element:<PrivateRoute><ChefsRecipe></ChefsRecipe></PrivateRoute>
                 
+            },
+            {
+                path:'/my_favorite_recipes',
+                element:<MyFavoriteRecipes></MyFavoriteRecipes>,
+                loader: () => getLikedRecipes()
             }
         ]
     }
