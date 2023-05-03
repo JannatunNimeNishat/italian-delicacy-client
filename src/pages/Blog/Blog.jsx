@@ -1,11 +1,24 @@
 import React from 'react';
+import BlogContent from './BlogContent';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
 const Blog = () => {
     return (
-        <div className='my-container border'>
-            <h3>THis is blog</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia nobis, laudantium ea perferendis facere dolorum repellendus soluta modi ducimus facilis vero porro voluptatum officiis quisquam totam iure odio consequuntur reiciendis.</p>
-        </div>
+        <>
+            <BlogContent />
+
+            <PDFDownloadLink document={<BlogContent />} fileName='blog.pdf'>
+                {({ loading }) => (
+
+                    loading ?
+                        'Loading please wait'
+                        :
+                        <button className='mt-20 text-center w-full '><span className='px-3 py-1 font-bold  border rounded'>Generate Pdf</span></button>
+                )
+                }
+
+            </PDFDownloadLink>
+        </>
     );
 };
 
