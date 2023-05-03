@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyFavoriteRecipes from "../pages/MyFavoriteRecipes/MyFavoriteRecipes";
 
 import getLikedRecipes from "../utilitie/helper"
+import Userdetails from "../pages/Userdetails/Userdetails";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
                 path:'/my_favorite_recipes',
                 element:<MyFavoriteRecipes></MyFavoriteRecipes>,
                 loader: () => getLikedRecipes()
+            },
+            {
+                path:'/userDetails',
+                element:<Userdetails></Userdetails>
             }
         ]
     }

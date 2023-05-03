@@ -60,9 +60,14 @@ const Navbar = () => {
 
                                 {
                                     user.photoURL ?
-                                        <img title={user.displayName} className='w-[45px]    object-cover rounded-full' src={user.photoURL} />
+                                        <Link to='/userDetails'>
+                                            <img title={user.displayName} className='w-[45px]    object-cover rounded-full' src={user.photoURL} />
+                                        </Link>
                                         :
-                                        <FaUserAlt title={user.displayName} className='w-[45px]  h-[25px]   ' />
+                                        <Link to='/userDetails'>
+                                            <FaUserAlt title={user.displayName} className='w-[45px]  h-[25px]   ' />
+
+                                        </Link>
                                 }
 
 
