@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa'
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 const Chefs = ({ singleChef }) => {
     // console.log(singleChef);
@@ -7,7 +8,9 @@ const Chefs = ({ singleChef }) => {
     return (
         <div className='border text-white p-5'>
             <div className='overflow-hidden'>
-                <img className='object-cover h-[300px]' src={picture} alt="" />
+                <LazyLoad>
+                    <img className='object-cover h-[300px]' src={picture} alt="" />
+                </LazyLoad>
             </div>
             <h3 className='text-2xl mt-4 font-semibold'>{chef_name} </h3>
             <p className='mt-3'>Years of Experience: {years_of_experience}</p>

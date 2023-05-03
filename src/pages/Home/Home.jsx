@@ -26,6 +26,7 @@ import { Pagination, Navigation } from "swiper";
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import LazyLoad from 'react-lazy-load';
 
 
 const Home = () => {
@@ -63,7 +64,7 @@ const Home = () => {
                 <div className='px-20 border  flex items-center'>
                     <>
                         <Swiper
-                           
+
                             navigation={true}
                             modules={[Pagination, Navigation]}
                             className="mySwiper"
@@ -71,59 +72,72 @@ const Home = () => {
                             <SwiperSlide className='p-8 '>
                                 <div className='w-full  px-8 text-center'>
 
-                                    <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c1} alt="" />
+                                    <LazyLoad>
+                                        <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c1} alt="" />
+                                    </LazyLoad>
+
                                     <p className='mt-5'>"I absolutely love this food recipe website! The variety of recipes is amazing, and they're all so easy to follow. I've made several dishes from here, and they've all turned out delicious. I especially love the step-by-step instructions and helpful tips for beginners. Highly recommend!"</p>
                                     <div className='mt-5 w-full  flex justify-center mb-8'>
                                         <Rating className='text-center ' style={{ maxWidth: 200 }} value={5} readOnly />
                                     </div>
-                                   
+
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide className='p-8 '>
                                 <div className='w-full  px-8 text-center'>
 
-                                    <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c2} alt="" />
+                                    <LazyLoad>
+                                        <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c2} alt="" />
+                                    </LazyLoad>
+
                                     <p className='mt-5'>"I stumbled upon this food recipe website when I was looking for a new recipe to try. I was impressed with the layout and the beautiful food photography. The recipe I tried was a hit with my family, and I've been hooked ever since. The website is easy to navigate, and I love that they have a search feature to find specific recipes."</p>
                                     <div className='mt-5 w-full  flex justify-center mb-8'>
                                         <Rating className='text-center ' style={{ maxWidth: 200 }} value={5} readOnly />
                                     </div>
-                                   
+
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide className='p-8 '>
                                 <div className='w-full  px-8 text-center'>
 
-                                    <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c3} alt="" />
+                                    <LazyLoad>
+                                        <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c3} alt="" />
+                                    </LazyLoad>
+
                                     <p className='mt-5'>"I've been following this food recipe website for a few months now, and it's become my go-to source for meal inspiration. The recipes are creative and unique, and the website has a great mix of healthy options and indulgent treats. The reviews and comments from other users are helpful too, as they give me ideas for modifications to the recipes."</p>
                                     <div className='mt-5 w-full  flex justify-center mb-8'>
                                         <Rating className='text-center ' style={{ maxWidth: 200 }} value={4.5} readOnly />
                                     </div>
-                                   
+
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide className='p-8 '>
                                 <div className='w-full  px-8 text-center'>
 
-                                    <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c4} alt="" />
+                                    <LazyLoad>
+                                        <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c4} alt="" />
+                                    </LazyLoad>
                                     <p className='mt-5'>"As someone who is not very confident in the kitchen, I appreciate how user-friendly this food recipe website is. The recipes are straightforward, and the ingredients are easy to find. I've been able to make some impressive dishes thanks to this website, and my friends and family have been impressed too!"</p>
                                     <div className='mt-5 w-full  flex justify-center mb-8'>
                                         <Rating className='text-center ' style={{ maxWidth: 200 }} value={5} readOnly />
                                     </div>
-                                   
+
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide className='p-8 '>
                                 <div className='w-full  px-8 text-center'>
 
-                                    <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c5} alt="" />
+                                    <LazyLoad>
+                                        <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c5} alt="" />
+                                    </LazyLoad>
                                     <p className='mt-5'>"I love how this food recipe website offers recipes from all over the world. I've been able to try new cuisines and flavors that I wouldn't have otherwise. The recipes are authentic and delicious, and the website offers helpful tips and techniques for cooking with unfamiliar ingredients. Highly recommend for foodies and adventurous eaters!"</p>
                                     <div className='mt-5 w-full  flex justify-center mb-8'>
                                         <Rating className='text-center ' style={{ maxWidth: 200 }} value={4.5} readOnly />
                                     </div>
-                                   
+
                                 </div>
                             </SwiperSlide>
-                           
+
                         </Swiper>
                     </>
                 </div>
