@@ -4,7 +4,7 @@ import { FaCopyright } from 'react-icons/fa';
 const Footer = () => {
     return (
         <div className='mt-32  border-t-2'>
-            <div className='px-12  grid grid-cols-5 gap-3 '>
+            <div className='px-12  md:grid grid-cols-5 gap-3 '>
                 <div className='col-span-3 pt-5'>
                     <h3 className='text-xl font-bold'>About us</h3>
                     <p className='mt-4 w-5/6'>Italian-delicacy is a digital cookbook and cooking guide alike, available on all platforms, that helps home cooks of every level discover, save and organize the world’s best recipes, while also helping them become better, more competent cooks.</p>

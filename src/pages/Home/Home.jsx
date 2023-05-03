@@ -59,18 +59,18 @@ const Home = () => {
             </div>
 
             {/* customer review */}
-            <div className='mt-36'>
+            <div className='mt-36 '>
                 <h3 className='text-3xl  font-bold mt-5 mb-10'>Reviews</h3>
-                <div className='px-20 border  flex items-center'>
+                <div className='px-10 md:px-20 border  flex items-center'>
                     <>
-                        <Swiper
+                        <Swiper 
 
                             navigation={true}
                             modules={[Pagination, Navigation]}
                             className="mySwiper"
                         >
-                            <SwiperSlide className='p-8 '>
-                                <div className='w-full  px-8 text-center'>
+                            <SwiperSlide className='md:p-8 '>
+                                <div className='w-full  md:px-8 text-center '>
 
                                     <LazyLoad>
                                         <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c1} alt="" />
@@ -83,8 +83,8 @@ const Home = () => {
 
                                 </div>
                             </SwiperSlide>
-                            <SwiperSlide className='p-8 '>
-                                <div className='w-full  px-8 text-center'>
+                            <SwiperSlide className='md:p-8 '>
+                                <div className='w-full  md:px-8 text-center'>
 
                                     <LazyLoad>
                                         <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c2} alt="" />
@@ -97,8 +97,8 @@ const Home = () => {
 
                                 </div>
                             </SwiperSlide>
-                            <SwiperSlide className='p-8 '>
-                                <div className='w-full  px-8 text-center'>
+                            <SwiperSlide className='md:p-8 '>
+                                <div className='w-full  md:px-8 text-center'>
 
                                     <LazyLoad>
                                         <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c3} alt="" />
@@ -111,8 +111,8 @@ const Home = () => {
 
                                 </div>
                             </SwiperSlide>
-                            <SwiperSlide className='p-8 '>
-                                <div className='w-full  px-8 text-center'>
+                            <SwiperSlide className='md:p-8 '>
+                                <div className='w-full  md:px-8 text-center'>
 
                                     <LazyLoad>
                                         <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c4} alt="" />
@@ -124,8 +124,8 @@ const Home = () => {
 
                                 </div>
                             </SwiperSlide>
-                            <SwiperSlide className='p-8 '>
-                                <div className='w-full  px-8 text-center'>
+                            <SwiperSlide className='md:p-8 '>
+                                <div className='w-full  md:px-8 text-center'>
 
                                     <LazyLoad>
                                         <img className='w-[140px] h-[140px] rounded-full mx-auto mt-8' src={c5} alt="" />
@@ -150,9 +150,9 @@ const Home = () => {
                 <h3 className='text-3xl  font-bold mt-3 mb-12'>Contact us</h3>
 
 
-                <div className=' grid grid-cols-3 '>
+                <div className=' md:grid grid-cols-3 '>
 
-                    <div className='col-span-1 border bg-[#2C2C2C] p-5 flex flex-col '>
+                    <div className='col-span-1 border bg-[#2C2C2C] p-5 md:flex flex-col '>
 
 
                         <h3 className='text-2xl  font-bold mb-3'>Address</h3>
@@ -161,8 +161,8 @@ const Home = () => {
                         <p className='flex items-center gap-3 mt-5'><FaMobileAlt className='h-5 w-4' /> +8801700000000</p>
 
 
-                        <div className='flex-grow '>
-                            <div className='flex  items-end w-full h-full  justify-between px-3'>
+                        <div className='flex-grow mt-5 md:mt-0'>
+                            <div className='flex  items-end w-full h-full  justify-between md:px-3'>
                                 <FaFacebook className='h-6 w-6 hover:text-blue-600' />
                                 <FaYoutube className='h-6 w-6 hover:text-red-600' />
                                 <FaTwitter className='h-6 w-6 hover:text-sky-500' />
