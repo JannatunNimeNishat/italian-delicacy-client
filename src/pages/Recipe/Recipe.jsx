@@ -4,9 +4,27 @@ import { FaHeart } from 'react-icons/fa'
 import { ToastContainer, toast } from 'react-toastify';
 const Recipe = ({ singleRecipe }) => {
     const [liked, setLiked] = useState(false);
-    const handleLiked = () => {
+
+    const handleLiked = (id) => {
+        console.log('recipe id: ',id);
         toast('Like added');
         setLiked(true);
+
+        //store liked items to local storage
+        let likedRecipesFromLocal={};
+        const getLocalSData= localStorage.getItem('likedRecipes')
+        if(getLocalSData){
+            likedRecipesFromLocal = JSON.parse(getLocalSData);
+        }
+
+        const check = likedRecipesFromLocal[id];
+        if(!check){
+            likedRecipesFromLocal[id] = id;
+        }
+
+        localStorage.setItem('likedRecipes',JSON.stringify(likedRecipesFromLocal));
+
+        
     }
     return (
         <div className='border p-6 flex flex-col bg-black '>
@@ -21,7 +39,7 @@ const Recipe = ({ singleRecipe }) => {
             <p className='mt-3'>Rating: {singleRecipe.rating}</p>
 
             <div className='flex-1 flex items-end mt-3 '>
-                <button onClick={handleLiked}
+                <button onClick={()=> handleLiked(singleRecipe.id)}
                     className={`${liked ? 'opacity-50' : ''} w-full my-btn `}
                     disabled={liked == true ? true : false}
                 >
