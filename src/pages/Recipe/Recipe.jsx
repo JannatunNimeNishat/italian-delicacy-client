@@ -8,7 +8,7 @@ const Recipe = ({ singleRecipe }) => {
 
     const handleLiked = (id) => {
         console.log('recipe id: ', id);
-        toast('Like added');
+        toast.success('Like added');
         setLiked(true);
 
         //store liked items to local storage

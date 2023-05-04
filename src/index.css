@@ -20,6 +20,12 @@
 .my-btn{
     @apply px-5 py-2 text-white font-bold bg-yellow-500 rounded hover:bg-yellow-600;
 }
+.my-light-theme{
+  @apply  bg-white text-black
+}
+.my-dark-theme{
+  @apply  bg-black text-white
+}
 
 
 

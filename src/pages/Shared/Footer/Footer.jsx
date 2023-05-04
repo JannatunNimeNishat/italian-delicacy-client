@@ -40,7 +40,7 @@ const Footer = () => {
                 </div>
 
             </div>
-            <p className='mx-8  mt-3 '><small className='flex items-center gap-1 text-slate-200'><FaCopyright/> Italian-delicacy</small></p>
+            <p className='mx-8  mt-3 '><small className='flex items-center gap-1 text-slate-200'><FaCopyright/> Copyright Italian-delicacy 2023</small></p>
           
         </div>
     );

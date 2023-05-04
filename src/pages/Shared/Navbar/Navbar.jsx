@@ -5,10 +5,10 @@ import { FaBars, FaUserAlt } from 'react-icons/fa'
 import { BsXLg } from "react-icons/bs";
 import { AuthContext } from '../../../providers/AuthProvider';
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
-
+    const { user, logOut, theme } = useContext(AuthContext);
+    console.log(theme);
     const [open, setOpen] = useState(false);
-    // console.log(user.photoURL); 
+
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -32,11 +32,11 @@ const Navbar = () => {
                 </span>
             </div>
             <nav className={`my-container mt-2  md:mt-0  md:flex absolute md:static duration-500  
-        ${open ? 'top-6' : '-top-40'}   justify-between items-center  py-4 `}>
+        ${open ? 'top-6' : '-top-80'}   justify-between items-center  py-4 bg-slate-500 md:bg-none `}>
 
 
                 <Link to='/'><h3 className='text-3xl primary-color font-bold'>Italian-delicacy</h3></Link>
-                <div className='flex gap-8 mr-32  '>
+                <div className='mt-3 flex flex-col md:flex-row gap-2 md:gap-8 mr-32  '>
                     <NavLink
                         to='/'
                         className={({ isActive }) => isActive ? 'active' : ''}
@@ -59,13 +59,13 @@ const Navbar = () => {
                         user ?
                             <>
                                 <Link >
-                                    <button onClick={handleLogout} className='my-btn primary-color'>Logout</button>
+                                    <button onClick={handleLogout} className='my-btn primary-color mb-3 md:mb-0'>Logout</button>
                                 </Link>
 
                                 {
                                     user.photoURL ?
                                         <Link to='/userDetails'>
-                                            <img title={user.displayName} className='w-[45px]    object-cover rounded-full' src={user.photoURL} />
+                                            <img title={user.displayName} className='w-[45px]    object-cover rounded-full ' src={user.photoURL} />
                                         </Link>
                                         :
                                         <Link to='/userDetails'>
@@ -85,9 +85,9 @@ const Navbar = () => {
                                 </Link>
                             </>
                     }
-                    {/* <Link to='/login'>
-                        <button className='my-btn'>Login</button>
-                    </Link> */}
+
+
+
                 </div>
             </nav>
         </>

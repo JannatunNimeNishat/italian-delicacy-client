@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../pages/Shared/Navbar/Navbar';
 import { Outlet, useNavigation } from 'react-router-dom';
 import Footer from '../pages/Shared/Footer/Footer';
@@ -8,9 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 const Main = () => {
     const navigation = useNavigation();
-    // console.log(navigation.state);
+
     return (
-        // bg-[#2C2C2C]
+
         <div className='bg-black text-white '>
 
             <Navbar></Navbar>
@@ -36,6 +36,11 @@ const Main = () => {
                 theme="light"
             />
         </div>
+
+
+
+
+
     );
 };
 
