@@ -11,4 +11,4 @@
 * React hot toast was used for custom notifications.
 * As name of this website suggests it is a food recipe website. It provides the best quality italian food recipes, which are traditionally made and presented with care.
 
-### [Live Link : ](https:demo/) https://demo
+### [Live Link : ](https:https://italian-delicacy.web.app) https://italian-delicacy.web.app

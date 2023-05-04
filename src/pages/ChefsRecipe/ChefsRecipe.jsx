@@ -14,7 +14,7 @@ const ChefsRecipe = () => {
  
 
     useEffect(() => {
-        fetch(`http://localhost:5000/chef/${id}`)
+        fetch(`https://italian-delicacy-server-jannatunnimenishat.vercel.app/chef/${id}`)
             .then(res => res.json())
             .then(data => {
 
@@ -24,7 +24,7 @@ const ChefsRecipe = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recipes/${id}`)
+        fetch(`https://italian-delicacy-server-jannatunnimenishat.vercel.app/recipes/${id}`)
             .then(res => res.json())
             .then(data => {
 

@@ -1,13 +1,13 @@
 
 const getChefsData = async()=>{
 
-    const res = await fetch(`http://localhost:5000/chefs/`)
+    const res = await fetch(`https://italian-delicacy-server-jannatunnimenishat.vercel.app/chefs/`)
     const data = await res.json()
     return data;
 }
 /* const getChefsData = ()=>{
 
-    fetch(`http://localhost:5000/chefs`)
+    fetch(`https://italian-delicacy-server-jannatunnimenishat.vercel.app/chefs`)
     .then(res => res.json())
     .then(data => return (data) )
    

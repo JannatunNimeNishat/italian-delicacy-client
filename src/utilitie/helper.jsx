@@ -1,7 +1,7 @@
 
 
 const getLikedRecipes = async() => {
-    const res = await fetch('http://localhost:5000/recipes/')
+    const res = await fetch('https://italian-delicacy-server-jannatunnimenishat.vercel.app/recipes/')
     const data = await res.json()
 
     let detailsLikedRecipe = [];

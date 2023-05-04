@@ -23,7 +23,7 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader: ()=> fetch('http://localhost:5000/chefs')
+                loader: ()=> fetch('https://italian-delicacy-server-jannatunnimenishat.vercel.app/chefs')
             },
             {
                 path:'/blog',
