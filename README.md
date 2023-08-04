@@ -20,5 +20,6 @@ Italian-delicacy is a digital cookbook and cooking guide. It helps home chefs wi
 * Frontend CSS framework tailwind was used so that UI can look modern and more customizability can be achieved.   
 * To navigate through different pages REACT Router was used.
 * React hot toast was used for custom notifications.
-* As the name of this website suggests it is a food recipe website. It provides the best quality Italian food recipes, which are traditionally made and presented with care.
+* As the name of this website suggests it is a food recipe website. It provides the best quality Italian food recipes, which are 
+  traditionally made and presented with care.
 
