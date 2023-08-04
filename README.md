@@ -16,7 +16,7 @@ Italian-delicacy is a digital cookbook and cooking guide. It helps home chefs wi
 * We use Firebase for user Authentication. 
 * A user can create his/her account with email password.
 * Event he/she can continue with his/her Gmail or GitHub accounts.
-*This website has private routes. No user can access some pages without logging in.
+* This website has private routes. No user can access some pages without logging in.
 * Frontend CSS framework tailwind was used so that UI can look modern and more customizability can be achieved.   
 * To navigate through different pages REACT Router was used.
 * React hot toast was used for custom notifications.
